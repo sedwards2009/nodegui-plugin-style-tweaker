@@ -2,19 +2,19 @@
 
 #include <map>
 
+#include "Extras/Export/export.h"
 #include <QProxyStyle>
 
 
-class StyleTweaker : public QProxyStyle {
-    public:
-        explicit StyleTweaker(const QString &key);
+class DLL_EXPORT StyleTweaker : public QProxyStyle {
+  public:
+    explicit StyleTweaker(const QString &key);
 
-        virtual int pixelMetric(QStyle::PixelMetric metric, const QStyleOption *option = nullptr,
-                                const QWidget *widget = nullptr) const override;
+    virtual int pixelMetric(QStyle::PixelMetric metric, const QStyleOption *option = nullptr,
+                            const QWidget *widget = nullptr) const override;
+    void setPixelMetric(QStyle::PixelMetric metric, int value);
+    void unsetPixelMetric(QStyle::PixelMetric metric);
 
-        void setPixelMetric(QStyle::PixelMetric metric, int value);
-        void unsetPixelMetric(QStyle::PixelMetric metric);
-
-    private:
+  private:
     std::map<QStyle::PixelMetric, int> m_pixelMetricOverride;
 };
