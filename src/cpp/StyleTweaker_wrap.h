@@ -1,13 +1,14 @@
 #pragma once
 
-#include <napi.h>
+//#include <napi.h>
+#include "Extras/Utils/nutils.h"
+// ^ FIXME: For some reason napi.h and nutils.h don't link ok on MSVC when used together.
 
 #include "StyleTweaker.h"
-#include "Extras/Export/export.h"
 #include "core/Component/component_macro.h"
 
 
-class DLL_EXPORT StyleTweakerWrap : public Napi::ObjectWrap<StyleTweakerWrap> {
+class StyleTweakerWrap : public Napi::ObjectWrap<StyleTweakerWrap> {
   COMPONENT_WRAPPED_METHODS_DECLARATION
 
  private:

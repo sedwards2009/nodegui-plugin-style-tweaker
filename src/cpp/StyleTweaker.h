@@ -2,11 +2,11 @@
 
 #include <map>
 
-#include "Extras/Export/export.h"
 #include <QProxyStyle>
 
 
-class DLL_EXPORT StyleTweaker : public QProxyStyle {
+class StyleTweaker : public QProxyStyle {
+
   public:
     explicit StyleTweaker(const QString &key);
 
