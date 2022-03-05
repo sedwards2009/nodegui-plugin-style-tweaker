@@ -10,7 +10,12 @@ TypeScript example:
 ```typescript
 //...
 import {  } from 'nodegui-plugin-style-tweaker';
+
 //...
+
+const style = new StyleTweaker("Windows");
+style.setPixelMetric(QStylePixelMetric.PM_SmallIconSize, 20);
+QApplication.setStyle(style);
 
 ```
 
