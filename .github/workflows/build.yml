@@ -29,7 +29,7 @@ jobs:
 
       - name: Remove cached nodegui Qt
         if: contains(matrix.os, 'macos')
-        run: rm -rf ~/Library/Caches/nodegui-mini-qt-nodejs || true
+        run: rm -rf /Users/runner/Library/Caches/nodegui-mini-qt-nodejs || true
 
       - name: Install deps
         run: npm install
@@ -84,7 +84,7 @@ jobs:
 
       - name: Remove cached nodegui Qt
         if: contains(matrix.os, 'macos')
-        run: rm -rf ~/Library/Caches/nodegui-mini-qt-nodejs || true
+        run: rm -rf /Users/runner/Library/Caches/nodegui-mini-qt-nodejs || true
 
       - name: Install deps
         run: npm install
