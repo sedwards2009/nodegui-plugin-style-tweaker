@@ -1,6 +1,6 @@
 {
     "name": "nodegui-plugin-style-tweaker",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "NodeGui plugin to tweaker a QStyle via proxy",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
