@@ -1,6 +1,6 @@
 # nodegui-plugin-style-tweaker
 
-A `QStyle` which acts as a proxy on top of another style and makes it possible to tweak pixel metrics returned by the base style.
+A `QStyle` which acts as a proxy on top of another style and makes it possible to tweak pixel metrics and style hints returned by the base style.
 
 
 [NodeGui](https://github.com/nodegui/nodegui).
@@ -15,6 +15,8 @@ import {  } from 'nodegui-plugin-style-tweaker';
 
 const style = new StyleTweaker("Windows");
 style.setPixelMetric(QStylePixelMetric.PM_SmallIconSize, 20);
+st.setStyleHint(0 /* QStyle::SH_EtchDisabledText */, 0);
+
 QApplication.setStyle(style);
 
 ```
