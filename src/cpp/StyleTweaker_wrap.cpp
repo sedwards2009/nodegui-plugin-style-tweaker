@@ -16,6 +16,8 @@ Napi::Object StyleTweakerWrap::init(Napi::Env env, Napi::Object exports) {
                    InstanceMethod("unpolish", &StyleTweakerWrap::unpolish),
                    InstanceMethod("setPixelMetric", &StyleTweakerWrap::setPixelMetric),
                    InstanceMethod("unsetPixelMetric", &StyleTweakerWrap::unsetPixelMetric),
+                   InstanceMethod("setStyleHint", &StyleTweakerWrap::setStyleHint),
+                   InstanceMethod("unsetStyleHint", &StyleTweakerWrap::unsetStyleHint),
                    COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE(StyleTweakerWrap)
        });
   constructor = Napi::Persistent(func);
@@ -75,5 +77,20 @@ Napi::Value StyleTweakerWrap::unsetPixelMetric(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
   int metricInt = info[0].As<Napi::Number>().Int32Value();
   this->instance->unsetPixelMetric(static_cast<QStyle::PixelMetric>(metricInt));
+  return env.Null();
+}
+
+Napi::Value StyleTweakerWrap::setStyleHint(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int hintInt = info[0].As<Napi::Number>().Int32Value();
+  int value = info[1].As<Napi::Number>().Int32Value();
+  this->instance->setStyleHint(static_cast<QStyle::StyleHint>(hintInt), value);
+  return env.Null();
+}
+
+Napi::Value StyleTweakerWrap::unsetStyleHint(const Napi::CallbackInfo& info) {
+  Napi::Env env = info.Env();
+  int hintInt = info[0].As<Napi::Number>().Int32Value();
+  this->instance->unsetStyleHint(static_cast<QStyle::StyleHint>(hintInt));
   return env.Null();
 }

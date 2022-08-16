@@ -27,4 +27,7 @@ class StyleTweakerWrap : public Napi::ObjectWrap<StyleTweakerWrap> {
 
   Napi::Value setPixelMetric(const Napi::CallbackInfo& info);
   Napi::Value unsetPixelMetric(const Napi::CallbackInfo& info);
+
+  Napi::Value setStyleHint(const Napi::CallbackInfo& info);
+  Napi::Value unsetStyleHint(const Napi::CallbackInfo& info);
 };

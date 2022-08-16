@@ -14,4 +14,12 @@ export class StyleTweaker extends QStyle {
     unsetPixelMetric(metric: QStylePixelMetric): void {
         this.native.unsetPixelMetric(metric);
     }
+
+    setStyleHint(hint: number /* QStyleStyleHint */, value: number): void {
+        this.native.setStyleHint(hint, value);
+    }
+
+    unsetStyleHint(hint: number /* QStyleStyleHint */): void {
+        this.native.unsetStyleHint(hint);
+    }
  }

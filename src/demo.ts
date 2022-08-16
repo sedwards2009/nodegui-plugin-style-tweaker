@@ -1,4 +1,4 @@
-import { FlexLayout, QFont, QFontDatabase, QPushButton, QLabel, QWidget, QMainWindow, QSize, QApplication, QToolButton, ToolButtonPopupMode, QMenu, QVariant, QStylePixelMetric } from '@nodegui/nodegui';
+import { FlexLayout, QFont, QFontDatabase, QPushButton, QLabel, QWidget, QMainWindow, QSize, QApplication, QToolButton, ToolButtonPopupMode, QMenu, QVariant, QStylePixelMetric, QCheckBox } from '@nodegui/nodegui';
 import { StyleTweaker } from './index';
 import * as path from 'path';
 import { createFontIcon } from 'nodegui-plugin-font-icon';
@@ -39,8 +39,15 @@ menuButton.setMenu(menu);
 
 rootLayout.addWidget(menuButton);
 
+const disabledCheckbox = new QCheckBox();
+disabledCheckbox.setDisabled(true);
+disabledCheckbox.setText("Disabled checkbox without 'etch' text effect");
+rootLayout.addWidget(disabledCheckbox);
+
 const st = new StyleTweaker("Windows");
 st.setPixelMetric(65 /* QStylePixelMetric.PM_SmallIconSize */, 64);
+st.setStyleHint(0 /* QStyle::SH_EtchDisabledText */, 0);
+
 QApplication.setStyle(st);
 win.setCentralWidget(centralWidget);
 

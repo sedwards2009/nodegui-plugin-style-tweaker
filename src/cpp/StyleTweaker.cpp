@@ -19,3 +19,21 @@ void StyleTweaker::setPixelMetric(QStyle::PixelMetric metric, int value) {
 void StyleTweaker::unsetPixelMetric(QStyle::PixelMetric metric) {
   m_pixelMetricOverride.erase(metric);
 }
+
+int StyleTweaker::styleHint(QStyle::StyleHint hint, const QStyleOption *option, const QWidget *widget,
+    QStyleHintReturn *returnData) const {
+
+  if (m_styleHintOverride.count(hint) != 0) {
+    return m_styleHintOverride.at(hint);
+  }
+
+  return QProxyStyle::styleHint(hint, option, widget, returnData);
+}
+
+void StyleTweaker::setStyleHint(QStyle::StyleHint hint, int value) {
+  m_styleHintOverride[hint] = value;
+}
+
+void StyleTweaker::unsetStyleHint(QStyle::StyleHint hint) {
+  m_styleHintOverride.erase(hint);
+}
