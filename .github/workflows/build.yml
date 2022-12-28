@@ -114,8 +114,6 @@ jobs:
           cwd: ./build/Release
           files: |
             ./nodegui_plugin_style_tweaker.node
-            ./nodegui_plugin_style_tweaker.lib
-            ./nodegui_plugin_style_tweaker.exp
           outPath: ${{ env.ARCHIVE_FILENAME }}
 
       - uses: actions/upload-artifact@v1
